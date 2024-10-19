@@ -16,4 +16,9 @@ public class Comment {
     private String content;
     @DBRef
     private User author;
+    @DBRef
+    private Post post;
+    @DBRef
+    @Builder.Default
+    private Comment parent = null;
 }

@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Data
 @Document(value = "post")
 public class Post {
@@ -13,6 +15,8 @@ public class Post {
 
     private String title;
     private String content;
+
+    private LocalDateTime createdAt;
 
     @DBRef
     private User author;
