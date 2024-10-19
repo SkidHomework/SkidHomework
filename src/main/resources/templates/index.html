@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" class="mdui-theme-auto">
 <head>
     <meta charset="UTF-8">
     <title th:text="#{index.title}">SkidHomework</title>
@@ -7,6 +7,29 @@
     <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
 </head>
 <body>
+<div class="mdui-container">
+    <mdui-navigation-drawer contained>
+        <div>
+            <mdui-text-field type="text" id="isbn" name="isbn" pattern="^(97(8|9))?\d{9}(\d|X)$" required label="ISBN"
+                             th:label="#{index.searchbox.isbn}"></mdui-text-field>
+            <mdui-button-icon>
+                <mdui-icon name="search"></mdui-icon>
+            </mdui-button-icon>
+        </div>
+    </mdui-navigation-drawer>
 
+    <div style="height: 160px;">
+        <mdui-button class="btn-toggle-drawer"></mdui-button>
+    </div>
+</div>
+
+
+<script>
+    const container = document.querySelector(".mdui-container");
+    const navigationDrawer = container.querySelector("mdui-navigation-drawer");
+    const toggleButton = container.querySelector(".btn-toggle-drawer");
+
+    toggleButton.addEventListener("click", () => navigationDrawer.open = !navigationDrawer.open);
+</script>
 </body>
 </html>
